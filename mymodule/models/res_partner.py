@@ -13,5 +13,5 @@ class ResPartner(models.Model):
 
     def _compute_url_google_maps(self):
         for partner in self:
-            partner.url_google_maps = 'http://www.google.com/maps/' + str(
+            partner.url_google_maps = 'https://www.google.com/maps/place/' + str(
                 partner.zip) + ',' + str(partner.city)
