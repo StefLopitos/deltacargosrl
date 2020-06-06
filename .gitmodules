@@ -1,0 +1,4 @@
+[submodule "StefLopitos/deltacargosrl"]
+	path = StefLopitos/deltacargosrl
+	url = git@github.com:StefLopitos/deltacargosrl.git
+	branch = b3
