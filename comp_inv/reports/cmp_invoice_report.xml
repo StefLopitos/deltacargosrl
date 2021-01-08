@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="fb_css_assets" name="fbinv assets" inherit_id="web.report_assets_common">
+        <xpath expr="//t[@t-name='web.report_assets_common']" position="inside">
+            <link href="/comp_inv/static/src/css/report_style.css" rel="stylesheet"/>
+        </xpath>
+    </template>
+
+    <template id="comp_inv.cmp_invoice_report_doc">
+
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <div class="row col-12">
+                            <!-- Header-->
+                            <div class="col-4 text-center">
+                                <img t-if="o.dosage_id.company_logo"
+                                     t-att-src="'data:image/png;base64,%s' % to_text(o.dosage_id.company_logo)"
+                                     style="max-height: 45px;" alt="o.dosage_id.business_name"/>
+                                <br/>
+                                <span class="text-center inv_business_name" t-field="o.dosage_id.business_name"/>
+                                <p class="text-center inv_business_description"
+                                   t-field="o.dosage_id.business_description"/>
+                            </div>
+                            <div class="col-4"/>
+                            <div class="col-4 pt-4">
+                                <table style="border:1px solid #4D4D4D; width:100%">
+                                    <tr>
+                                        <td class="comp_data">NIT</td>
+                                        <td class="comp_data">:
+                                            <t t-esc="o.dosage_id.tin"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="comp_data">FACTURA Nro</td>
+                                        <td class="comp_data">:
+                                            <t t-esc="o.invoice_number"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="comp_data">AUTORIZACION Nro</td>
+                                        <td class="comp_data">:
+                                            <t t-esc="o.dosage_id.auth_number"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <p class="text-center">Actividad Económica:
+                                    <t t-esc="o.dosage_id.activity_id.name"/>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center">
+                            <h2>FACTURA</h2>
+                        </div>
+                        <div class="row col-12">
+                            <table style="width:100%">
+                                <tr>
+                                    <td style="width:80%">
+                                        <span>Lugar y Fecha:<span t-field="o.dosage_id.location"/>,
+                                            <span t-field="o.date_emission"/>
+                                        </span>
+                                    </td>
+                                    <td/>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Sr(a):
+                                            <span t-field="o.customer_business_name"/>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span>NIT/CI:
+                                            <span t-field="o.customer_tin"/>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="row col-12">
+                            <table class="inv_border" border="2" cellmargin="0">
+                                <theader>
+                                    <tr>
+                                        <th class="col-11 text-center head">DESCRIPCION</th>
+                                        <th class="col-1 text-center head">SUBTOTAL</th>
+                                    </tr>
+                                </theader>
+                                <tbody>
+                                    <tr t-foreach="o.invoice_lines" t-as="line">
+                                        <td class="detail">
+                                            <span t-field="line.name"/>
+                                        </td>
+                                        <td class="col-1 text-right detail">
+                                            <span t-esc="'{:12.2f}'.format(line.price_total)"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-11 detail">Son:
+                                            <span t-esc="o.display_literal(o.amount_total, 'es', 'Bolivianos')"/>
+                                            <span class="right-cell">
+                                                <strong>TOTAL Bs</strong>
+                                            </span>
+                                        </td>
+
+                                        <td class="col-1 text-right detail">
+                                            <strong>
+                                                <t t-esc="'{:12.2f}'.format(o.amount_total)"/>
+                                            </strong>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-10">
+                                <div class="col-12">
+                                    <p class="pt-2">
+                                        <strong>CODIGO DE CONTROL:</strong>
+                                        <strong>
+                                            <span t-field="o.control_code"/>
+                                        </strong>
+                                    </p>
+                                    <p>
+                                        <strong>Fecha Limite de Emision:</strong>
+                                        <strong>
+                                            <span t-field="o.dosage_id.date_due"/>
+                                        </strong>
+                                    </p>
+                                    <p class="ad_footer text-center" t-field="o.dosage_id.invoice_footer"/>
+                                </div>
+                            </div>
+                            <div class="col-2" style="margin-left:-23pt; margin-top:4pt">
+                                <img style="width:100%" class="border border-dark rounded" t-att-src="o.get_qr_url()"
+                                     alt="QR CODE"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+    <report
+            id="cmp_invoice_report"
+            string="Comp. Invoice"
+            model="cmp.invoice"
+            report_type="qweb-pdf"
+            name="comp_inv.cmp_invoice_report_doc"
+            file="cmp_inv"
+    />
+</odoo>

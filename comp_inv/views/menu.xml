@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="cmp_root_menu" name="Comp. Invoicing" web_icon="comp_inv,static/description/icon.png" />
+    <menuitem id="cmp_main_menu" name="Invoicing" parent="cmp_root_menu" sequence="4"/>
+    <menuitem id="cmp_invoice_menu" name="Invoices" parent="cmp_main_menu" sequence="4" action="cmp_invoice_action"/>
+
+    <menuitem id="cmp_settings_menu" name="Settings" parent="cmp_root_menu" sequence="10"/>
+    <menuitem id="cmp_dosage_menu" name="Dosages" parent="cmp_settings_menu" action="cmp_dosage_action"/>
+
+</odoo>

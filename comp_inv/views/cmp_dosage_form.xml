@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="cmp_dosage_form">
+        <field name="name">Invoicing dosage form</field>
+        <field name="model">cmp.dosage</field>
+        <field name="arch" type="xml">
+            <form string="Dosage">
+                <header>
+                    <button name="set_active" type="object" string="Active"
+                            attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button name="set_draft" type="object" string="Draft"
+                            attrs="{'invisible': [('state', '=', 'draft')]}"/>
+                    <button name="set_expired" type="object" string="Expired"
+                            attrs="{'invisible': [('state', '=', 'expired')]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active,expired"/>
+                </header>
+                <sheet>
+                    <field name="company_logo" widget="image" class="oe_avatar"
+                           attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Reference..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="business_name" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="tin" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="sfc" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="activity_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="type_dosage" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                        <group>
+                            <field name="is_branch" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="branch_code"
+                                   attrs="{'invisible':[('is_branch', '=', False)], 'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="location" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <label for="business_description" colspan="2"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="business_description" nolabel="1" colspan="2"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Main info">
+                            <group colspan="4" col="4">
+                                <group colspan="4">
+                                    <group string="Authorization Number" colspan="4" col="2">
+                                        <field name="auth_number" required="1" nolabel="1" colspan="4"
+                                               attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                        <field name="auth_number_c" required="1" nolabel="1" colspan="4"
+                                               placeholder="Confirm"
+                                               class="oe_edit_only"
+                                               attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    </group>
+                                    <group string="Initial Invoice Number" colspan="4" col="2">
+                                        <field name="initial_invoice_number" required="1" nolabel="1" colspan="2"
+                                               attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                        <field name="initial_invoice_number_c" required="1" nolabel="1" colspan="2"
+                                               placeholder="Confirm"
+                                               class="oe_edit_only" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    </group>
+                                    <group string="Dosage Key" colspan="4" col="2">
+                                        <field name="dosage_key" required="1" nolabel="1" colspan="2"
+                                               attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                        <field name="dosage_key_c" required="1" nolabel="1" colspan="2"
+                                               class="oe_edit_only"
+                                               placeholder="Confirm"
+                                               attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    </group>
+                                    <group string="Due date" colspan="4" col="2">
+                                        <field name="date_due" required="1" nolabel="1" colspan="2"
+                                               attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                        <field name="date_due_c" required="1" nolabel="1" colspan="2"
+                                               class="oe_edit_only"
+                                               placeholder="Confirm"
+                                               attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    </group>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Print">
+                            <group string="Invoice lines" colspan="4" col="4">
+                                <field name="limit_lines" colspan="4" help="Zero means no limit"/>
+                                <field name="limit_detail" colspan="2" help="Zero gets full text"/>
+                                <field name="limit_detail_display" help="Zero shows full text" colspan="2"/>
+                            </group>
+                            <group string="Header">
+                                <field name="invoice_header" nolabel="1"/>
+                            </group>
+                            <group string="Footer">
+                                <field name="invoice_footer" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
