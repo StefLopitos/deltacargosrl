@@ -9,16 +9,25 @@ padding-left:5px;
 
 
 .box-company {
-font-weight: bold;
+    font-size: 13px;
+    font-weight: bold;
 }
 .box-small-description {
-    font-size: 10px;
+    position: absolute;
+    font-size: 12px;
 }
 
 .box-title {
-
+    font-size: 36px;
+    font-weight: 900;
+    color: #ee901f;
+    padding-top: 0;
+    position: absolute;
+    bottom: 0;
+    width: inherit;
 }
-.round_table {
+.box-round {
+    padding: 8px;
     border-style: solid;
     border-color: #4d4d4d;
     border-width: 1px;
@@ -26,7 +35,7 @@ font-weight: bold;
 }
 
 .box-nit {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 700;
     margin-bottom: 0;
 }
@@ -36,9 +45,62 @@ font-weight: bold;
     font-weight: 700;
     margin-bottom: 0;
 }
+.box-auth {
+    margin-bottom: 0;
+}
 
+.box-date {
+    font-weight:600;
+    padding-left: 10px;
+}
+.box-nit-ci {
+    padding-left: 10px;
+}
+.font-mid {
+    font-size:16px;
+}
 
-
+.table-round {
+    border-color: #000;
+    border-style: solid;
+    border-width: 2pt;
+    border-radius: 10pt;
+    padding: 0;
+}
+.table-round table{
+    width:100%;
+}
+.table-round table th {
+    border-bottom-color: #000;
+    border-bottom-style: solid;
+    border-bottom-width: 2pt;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+.table-round tr {
+    height: 30px;
+}
+.table-round td {
+    padding: 10px;
+    font-size: 13px;
+}
+.table-round > table > tr:first-child{
+    border-left: none;
+}
+tr.bottom-fill-row {
+    height: auto;
+}
+td.bottom-fill-cell {
+    height: auto;
+    border-bottom: solid 2pt #000;
+}
+td.bleft {
+    border-left: solid 2pt #000;
+}
+table.invoice-detail-letter {
+    height:450px;
+}
 
 .fb-centered {
 margin: 0 auto;
