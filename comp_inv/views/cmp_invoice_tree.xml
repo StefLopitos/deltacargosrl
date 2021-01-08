@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="comp_inv.cmp_invoice_tree" model="ir.ui.view">
+        <field name="name">computerized Invoices</field>
+        <field name="model">cmp.invoice</field>
+        <field name="priority">2</field>
+        <field name="arch" type="xml">
+            <tree string="Comp. Invoices" decoration-bf="state=='draft'" decoration-muted="state=='void'">
+                <field name="date_emission" />
+                <field name="dosage_id"/>
+                <field name="invoice_number"/>
+                <field name="name" string="Order Number" readonly="1"/>
+                <field name="control_code"/>
+                <field name="amount_total"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

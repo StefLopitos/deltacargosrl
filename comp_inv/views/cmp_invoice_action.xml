@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="comp_inv.cmp_invoice_search" model="ir.ui.view">
+        <field name="name">Computerized invoices search</field>
+        <field name="model">cmp.invoice</field>
+        <field name="priority" eval="15"/>
+        <field name="arch" type="xml">
+            <search string="Search Invoices">
+                <field name="name" string="Reference number"
+                       filter_domain="['|', ('name', 'ilike', self), ('invoice_number', '=', self)]"/>
+                <field name="customer_id"/>
+                <field name="user_id"/>
+                <field name="dosage_id"/>
+                <filter string="My Invoices" domain="[('user_id', '=', uid)]" name="my_cmp_invoices_filter"/>
+                <filter invisible="1" string="Today Invoices" name="cmp_invoices_today_filter"
+                        domain="[('date_emission', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter string="Valid only" name="valid_only" domain="[('state', 'valid')]"/>
+                <filter string="Void only" name="void_only" domain="[('state', 'void')]"/>
+                <filter string="Draft only" name="draft_only" domain="[('state', 'draft')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Salesperson" name="salesperson" domain="[]" context="{'group_by': 'user_id'}"/>
+                    <filter name="customer" string="Customer" domain="[]" context="{'group_by': 'customer_id'}"/>
+                    <filter string="Invoice Date" name="order_date" domain="[]"
+                            context="{'group_by': 'date_emission'}"/>
+                    <filter string="Invoice Status" name="order_state" domain="[]" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="cmp_invoice_action" model="ir.actions.act_window">
+        <field name="name">Comp. Invoices</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cmp.invoice</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="comp_inv.cmp_invoice_search"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new invoice.
+            </p>
+        </field>
+    </record>
+</odoo>

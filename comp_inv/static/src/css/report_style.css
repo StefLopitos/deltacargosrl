@@ -1,0 +1,130 @@
+.page { font-size:12px; }
+.table-gray {
+border: solid 2px #0e0e0e;
+border-radius:10px;
+background-color:#dedede;
+font-size:11px;
+padding-left:5px;
+}
+
+
+.box-company {
+font-weight: bold;
+}
+.box-small-description {
+    font-size: 10px;
+}
+
+.box-title {
+
+}
+.round_table {
+    border-style: solid;
+    border-color: #4d4d4d;
+    border-width: 1px;
+    border-radius: 5pt;
+}
+
+.box-nit {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+.box-red {
+    font-size: 18px;
+    color: hsl(11deg 86% 40%);
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+
+
+
+.fb-centered {
+margin: 0 auto;
+}
+h1.fb-centered{
+font-weight:800;
+margin: 0 auto !important;
+color: #71777d;
+}
+.fb-th {
+background-color:#f0f1f3;
+border: 1px solid #dedede;
+text-align:center;
+height:32px;
+}
+.fb-td-line {
+padding-top: 2px !important;
+padding-bottom: 0 !important;
+border: 1px solid #DEDEDE;
+border-bottom:none;
+border-top:none !important;
+height:28px;
+}
+.fb-td-lastline {
+padding-top: 2px !important;
+padding-bottom: 0 !important;
+border: 1px solid #DEDEDE;
+border-bottom:none;
+border-top:none !important;
+height: auto !important;
+}
+.fb-td-footer {
+border: 1px solid #DEDEDE;
+height:28px;
+background-color:#f0f1f3;
+}
+
+
+.fb-company-description {
+    border-left: 2px solid #31a94c;
+    padding-left: 12px;
+    margin-top: 10px;
+}
+
+.fb-label-cell {
+    display: block;
+    padding-left: 1px;
+    padding-right: 8px;
+    font-weight: bold;
+    background-color: #ffffff;
+}
+.fb-small-text {
+    font-size:smaller;
+}
+.fb-grey-cell {
+    width: 100%;
+    display: inline-block;
+    margin-top: 5px;
+    background-color: #f2eded;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.fb-table-strip > thead > tr > th{
+    background-color: #0066ff;
+    border: solid 1px #ffffff;
+    color: #ffffff;
+    text-align: center !important;
+}
+.fb-table-strip > tbody > tr {
+    background-color: #f6f6f6;
+}
+.fb-table-strip > tbody > tr > td {
+    border: solid 1px #ffffff !important;
+    padding-left: 5px;
+    padding-right:5px;
+}
+.fb-table-strip > tbody > tr:nth-child(even) {
+    background-color: #eeeeed;
+}
+td.fb-td-lastline{
+    background-color: #f6f6f6;
+}
+
+.fb-table-strip > tbody > tr.footer {
+    background-color: #ffffff;
+    text-transform: uppercase;
+    height: 28px;
+}

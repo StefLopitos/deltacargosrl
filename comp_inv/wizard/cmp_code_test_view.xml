@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cmp_code_test_view" model="ir.ui.view">
+            <field name="name">Invoicing code generator</field>
+            <field name="model">cmp.code.test</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Code generator">
+                    <group>
+                        <group>
+                            <field name="date_emmission" required="1"/>
+                            <field name="invoice_number" required="1"/>
+                            <field name="amount_total" required="1"/>
+                            <field name="auth_number" required="1"/>
+                            <field name="customer_tin" required="1"/>
+                            <field name="dosage_key" required="1"/>
+                        </group>
+                        <group>
+                            <h2>
+                                <field name="control_code" readonly="1"/>
+                            </h2>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string='Generate code' name="execute_test" type="object" class="btn-primary"/>
+                        <button string="Close" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="cmp_code_test_action" model="ir.actions.act_window">
+            <field name="name">Code generator</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cmp.code.test</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem name="Code generator" id="menu_cmp_code_test" parent="cmp_settings_menu" sequence="11"
+                  action="cmp_code_test_action"/>
+
+
+    </data>
+</odoo>

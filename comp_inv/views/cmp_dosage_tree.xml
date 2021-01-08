@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="comp_inv.cmp_dosage_tree" model="ir.ui.view">
+        <field name="name">Dosages</field>
+        <field name="model">cmp.dosage</field>
+        <field name="priority">4</field>
+        <field name="arch" type="xml">
+            <tree string="Comp. Invoices" decoration-primary="state=='active'" decoration-muted="state=='expired'">
+                <field name="name" />
+                <field name="tin"/>
+                <field name="business_name"/>
+                <field name="is_branch"/>
+                <field name="branch_code"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

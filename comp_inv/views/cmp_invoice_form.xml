@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="cmp_invoice_form">
+        <field name="name">computerized Invoice</field>
+        <field name="model">cmp.invoice</field>
+        <field name="arch" type="xml">
+            <form string="Comp. Invoice">
+                <header>
+                    <button name="validate_invoice" type="object" string="Validate" states="draft"/>
+                    <button name="set_void" type="object" string="Void" states="V,E,N,C,L"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,V,A,E,N,C,L"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <label for="customer_id" class="oe_edit_only"
+                                   attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            <field name="customer_id" class="oe_edit_only" nolabel="1" colspan="1"
+                                   attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            <field name="customer_business_name"
+                                   attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            <field name="customer_tin" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            <field name="customer_code" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                        </group>
+                        <group>
+                            <field name="dosage_id" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            <field name="auth_number" readonly="1"/>
+                            <field name="use_dosage_taxes" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            <field name="payment" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            <field name="date_emission" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            <field name="invoice_number" readonly="1"/>
+                            <field name="control_code" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lines">
+                            <field name="invoice_lines" attrs="{'readonly': [('state', 'not in', ['draft'])]}">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="product_qty"/>
+                                    <field name="price_unit"/>
+                                    <field name="price_discount"/>
+                                    <field name="price_total"/>
+                                </tree>
+                            </field>
+                            <group name="note_group" col="6">
+                                <group colspan="4">
+                                    <field name="comments" nolabel="1" placeholder="Comments..."
+                                           attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                                </group>
+                                <group class="oe_subtotal_footer oe_right" colspan="2" name="invoice_totals">
+                                    <field name="amount_untaxed"/>
+                                    <field name="amount_discount"/>
+                                    <field name="amount_tax"/>
+                                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                        <label for="amount_total"/>
+                                    </div>
+                                    <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator"/>
+                                </group>
+                                <div class="oe_clear"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <!--field name="activity_ids" widget="mail_activity"/-->
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+</odoo>
