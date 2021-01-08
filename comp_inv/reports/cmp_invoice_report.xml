@@ -14,103 +14,92 @@
                 <t t-call="web.basic_layout">
                     <div class="page">
                         <div class="row col-12">
-                            <!-- Header-->
-                            <div class="col-4 text-center">
+                            <div class="col-4 pt-2 text-center">
                                 <img t-if="o.dosage_id.company_logo"
                                      t-att-src="'data:image/png;base64,%s' % to_text(o.dosage_id.company_logo)"
-                                     style="max-height: 45px;" alt="o.dosage_id.business_name"/>
-                                <br/>
-                                <span class="text-center inv_business_name" t-field="o.dosage_id.business_name"/>
-                                <p class="text-center inv_business_description"
-                                   t-field="o.dosage_id.business_description"/>
+                                     style="height: 125px;" alt="o.dosage_id.business_name"/>
+                                <div class="box-company">
+                                    <span t-field="o.dosage_id.business_name"/>
+                                </div>
+                                <div class="box-small-description">
+                                    <span t-field="o.dosage_id.invoice_header"/>
+                                </div>
                             </div>
-                            <div class="col-4"/>
-                            <div class="col-4 pt-4">
-                                <table style="border:1px solid #4D4D4D; width:100%">
-                                    <tr>
-                                        <td class="comp_data">NIT</td>
-                                        <td class="comp_data">:
-                                            <t t-esc="o.dosage_id.tin"/>
+                            <div class="col-4 pt-2">
+                                <div class="box-title text-center">FACTURA</div>
+                            </div>
+                            <div class="col-4 pt-5">
+                                <div class="box-round">
+                                    <p class="box-nit">
+                                        NIT:
+                                        <span t-field="o.dosage_id.tin"/>
+                                    </p>
+                                    <p class="box-nit">
+                                        FACTURA:
+                                        <span t-field="o.invoice_number"/>
+                                    </p>
+                                    <p class="box-nit">
+                                        Nº AUTORIZACION:
+                                        <span t-field="o.dosage_id.auth_number"/>
+                                    </p>
+                                </div>
+                                <p class="text-center" t-field="o.dosage_id.activity_id.name"></p>
+                            </div>
+                        </div>
+                        <div class="row col-12 pt-5 font-mid">
+                            <div class="col-4">
+                                <span t-field="o.dosage_id.location"/>
+                                <span class="box-date">
+                                    <t t-esc="o.date_emission.strftime('%d / %m / %Y')"/>
+                                </span>
+                            </div>
+                            <div class="col-4">
+                                C.I. / N.I.T.:
+                                <span class="box-nit-ci">
+                                    <span t-field="o.customer_tin"/>
+                                </span>
+                            </div>
+                            <div class="col-4">
+
+                            </div>
+                        </div>
+                        <div class="row col-12 pt-3">
+                            <div class="col-12 table-round">
+                                <table class="invoice-detail-letter">
+                                    <th>CONCEPTO</th>
+                                    <th>CANT</th>
+                                    <th>PRECIO</th>
+                                    <th>SUBTOTAL</th>
+                                    <tr t-foreach="o.invoice_lines" t-as="line">
+                                        <td>
+                                            <span t-field="line.name"/>
+                                        </td>
+                                        <td class="bleft">
+                                            <span t-field="line.product_qty"/>
+                                        </td>
+                                        <td class="bleft text-right">
+                                            <span t-field="line.price_unit"/>
+                                        </td>
+                                        <td class="bleft text-right">
+                                            <span t-field="line.price_subtotal"/>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="comp_data">FACTURA Nro</td>
-                                        <td class="comp_data">:
-                                            <t t-esc="o.invoice_number"/>
-                                        </td>
+                                    <tr class="bottom-fill-row">
+                                        <td class="bottom-fill-cell"></td>
+                                        <td class="bottom-fill-cell bleft"></td>
+                                        <td class="bottom-fill-cell bleft"></td>
+                                        <td class="bottom-fill-cell bleft"></td>
                                     </tr>
                                     <tr>
-                                        <td class="comp_data">AUTORIZACION Nro</td>
-                                        <td class="comp_data">:
-                                            <t t-esc="o.dosage_id.auth_number"/>
+                                        <td class="bottom-cell"></td>
+                                        <td class="bottom-cell"></td>
+                                        <td class="bottom-cell text-right">TOTAL Bs.:</td>
+                                        <td class="bottom-cell text-right">
+                                            <span t-field="o.amount_total"></span>
                                         </td>
                                     </tr>
                                 </table>
-                                <p class="text-center">Actividad Económica:
-                                    <t t-esc="o.dosage_id.activity_id.name"/>
-                                </p>
                             </div>
-                        </div>
-                        <div class="col-12 text-center">
-                            <h2>FACTURA</h2>
-                        </div>
-                        <div class="row col-12">
-                            <table style="width:100%">
-                                <tr>
-                                    <td style="width:80%">
-                                        <span>Lugar y Fecha:<span t-field="o.dosage_id.location"/>,
-                                            <span t-field="o.date_emission"/>
-                                        </span>
-                                    </td>
-                                    <td/>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span>Sr(a):
-                                            <span t-field="o.customer_business_name"/>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span>NIT/CI:
-                                            <span t-field="o.customer_tin"/>
-                                        </span>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="row col-12">
-                            <table class="inv_border" border="2" cellmargin="0">
-                                <theader>
-                                    <tr>
-                                        <th class="col-11 text-center head">DESCRIPCION</th>
-                                        <th class="col-1 text-center head">SUBTOTAL</th>
-                                    </tr>
-                                </theader>
-                                <tbody>
-                                    <tr t-foreach="o.invoice_lines" t-as="line">
-                                        <td class="detail">
-                                            <span t-field="line.name"/>
-                                        </td>
-                                        <td class="col-1 text-right detail">
-                                            <span t-esc="'{:12.2f}'.format(line.price_total)"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-11 detail">Son:
-                                            <span t-esc="o.display_literal(o.amount_total, 'es', 'Bolivianos')"/>
-                                            <span class="right-cell">
-                                                <strong>TOTAL Bs</strong>
-                                            </span>
-                                        </td>
-
-                                        <td class="col-1 text-right detail">
-                                            <strong>
-                                                <t t-esc="'{:12.2f}'.format(o.amount_total)"/>
-                                            </strong>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
                         </div>
                         <div class="row">
                             <div class="col-10">
