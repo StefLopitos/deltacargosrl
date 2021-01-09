@@ -15,9 +15,7 @@
                     <div class="page">
                         <div class="row col-12">
                             <div class="col-4 pt-2 text-center">
-                                <img t-if="o.dosage_id.company_logo"
-                                     t-att-src="'data:image/png;base64,%s' % to_text(o.dosage_id.company_logo)"
-                                     style="height: 125px;" alt="o.dosage_id.business_name"/>
+                                <img t-if="o.dosage_id.company_logo" t-att-src="'data:image/png;base64,%s' % to_text(o.dosage_id.company_logo)" style="height: 125px;" alt="o.dosage_id.business_name"/>
                                 <div class="box-company">
                                     <span t-field="o.dosage_id.business_name"/>
                                 </div>
@@ -43,26 +41,29 @@
                                         <span t-field="o.dosage_id.auth_number"/>
                                     </p>
                                 </div>
-                                <p class="text-center" t-field="o.dosage_id.activity_id.name"></p>
+                                <p class="text-center" t-field="o.dosage_id.activity_id.name"/>
                             </div>
                         </div>
                         <div class="row col-12 pt-5 font-mid">
-                            <div class="col-4">
+                            <div class="col-5">
                                 <span t-field="o.dosage_id.location"/>
                                 <span class="box-date">
                                     <t t-esc="o.date_emission.strftime('%d / %m / %Y')"/>
                                 </span>
                             </div>
-                            <div class="col-4">
+                            <div class="col-5">
                                 C.I. / N.I.T.:
                                 <span class="box-nit-ci">
                                     <span t-field="o.customer_tin"/>
                                 </span>
                             </div>
-                            <div class="col-4">
-
+                            <div class="col-2">
                             </div>
+
                         </div>
+                        <div class="col-12 font-mid">
+                              Sr(es): <span t-field="o.customer_business_name"/>
+                            </div>
                         <div class="row col-12 pt-3">
                             <div class="col-12 table-round">
                                 <table class="invoice-detail-letter">
@@ -85,23 +86,28 @@
                                         </td>
                                     </tr>
                                     <tr class="bottom-fill-row">
-                                        <td class="bottom-fill-cell"></td>
-                                        <td class="bottom-fill-cell bleft"></td>
-                                        <td class="bottom-fill-cell bleft"></td>
-                                        <td class="bottom-fill-cell bleft"></td>
+                                        <td class="bottom-fill-cell"/>
+                                        <td class="bottom-fill-cell bleft"/>
+                                        <td class="bottom-fill-cell bleft"/>
+                                        <td class="bottom-fill-cell bleft"/>
                                     </tr>
                                     <tr>
-                                        <td class="bottom-cell"></td>
-                                        <td class="bottom-cell"></td>
+                                        <td class="bottom-cell"/>
+                                        <td class="bottom-cell"/>
                                         <td class="bottom-cell text-right">TOTAL Bs.:</td>
                                         <td class="bottom-cell text-right">
-                                            <span t-field="o.amount_total"></span>
+                                            <span t-field="o.amount_total"/>
                                         </td>
                                     </tr>
                                 </table>
                             </div>
+
                         </div>
-                        <div class="row">
+                        <div class="row col-12 font-mid">
+                                Son: <t t-esc="o.display_literal(o.amount_total, language='es', suffix='Bolivianos.')"/>
+                            </div>
+
+                        <div class="row col-12">
                             <div class="col-10">
                                 <div class="col-12">
                                     <p class="pt-2">
@@ -120,8 +126,7 @@
                                 </div>
                             </div>
                             <div class="col-2" style="margin-left:-23pt; margin-top:4pt">
-                                <img style="width:100%" class="border border-dark rounded" t-att-src="o.get_qr_url()"
-                                     alt="QR CODE"/>
+                                <img style="width:100%" class="border border-dark rounded" t-att-src="o.get_qr_url()" alt="QR CODE"/>
                             </div>
                         </div>
                     </div>
