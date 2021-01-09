@@ -172,8 +172,8 @@ class CmpInvoice(models.Model):
         values = [
             self.dosage_id.tin,
             self.invoice_number,
-            self.auth_number,
-            self.date_emission.strftime('%d/%m/%Y').split('-'),
+            self.dosage_id.auth_number,
+            self.date_emission.strftime('%d/%m/%Y'),
             '{:12.2f}'.format(self.amount_total).strip(),
             '{:12.2f}'.format(base_taxable).strip(),
             self.control_code or '0',
