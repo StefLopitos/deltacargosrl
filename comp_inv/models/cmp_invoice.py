@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
+
 import werkzeug
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 import math
-from . import constants
+from .constants import CMPConstants as constants
 from num2words import num2words
 from .control_code_generator import ControlCodeGenerator
 
@@ -176,7 +178,7 @@ class CmpInvoice(models.Model):
             self.date_emission.strftime('%d/%m/%Y'),
             '{:12.2f}'.format(self.amount_total).strip(),
             '{:12.2f}'.format(base_taxable).strip(),
-            self.control_code or '0',
+            self.control_code,
             self.customer_tin or '0',
             '{:12.2f}'.format(self.amount_ice).strip(),
             '{:12.2f}'.format(amount_notax).strip(),

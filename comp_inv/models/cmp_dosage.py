@@ -2,7 +2,8 @@
 
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError, UserError
-from . import constants
+from .constants import CMPConstants as constants
+from .control_code_generator import ControlCodeGenerator
 
 
 class CmpDosage(models.Model):
@@ -46,8 +47,8 @@ class CmpDosage(models.Model):
     def get_next_number(self):
         for dosage in self:
             next_number = dosage.initial_invoice_number
-            self.env.cr.execute("""SELECT MAX(invoice_number) AS max_number 
-            FROM cmp_invoice WHERE dosage_id=%s""" % dosage.id)
+            self.env.cr.execute("""SELECT MAX(cmp_number) AS max_number 
+            FROM account_move WHERE cmp_dosage_id=%s""" % dosage.id)
             for foo in self.env.cr.dictfetchall():
                 if foo['max_number'] is None or foo['max_number'] == 0:
                     next_number = dosage.initial_invoice_number
@@ -55,18 +56,38 @@ class CmpDosage(models.Model):
                     next_number = foo['max_number'] + 1
         return next_number
 
+    def validate_invoice(self, invoice_number, customer_nit, invoice_issue, invoice_total):
+        code_gen = ControlCodeGenerator()
+        if invoice_number == 0:
+            invoice_number = self.get_next_number()
+        code_gen.set_data(self.auth_number,
+                          invoice_number,
+                          customer_nit,
+                          invoice_issue.strftime('%Y-%m-%d'),
+                          invoice_total,
+                          self.dosage_key)
+        code_gen.generate_control_code()
+        return {
+            'cmp_number': invoice_number,
+            'cmp_issue': invoice_issue,
+            'cmp_code': code_gen.CONTROL_CODE,
+            'cmp_state': constants.INVOICE_VALID
+        }
+
     def set_active(self):
         for dsg in self:
             dsg.update({'state': constants.ACTIVE})
 
     def set_draft(self):
-        env_inv = self.env['cmp.invoice']
+        env_am = self.env['account.move']
         for dsg in self:
-            count_inv = env_inv.search_count([('dosage_id', '=', dsg.id)])
+            count_inv = env_am.search_count([('cmp_dosage_id', '=', dsg.id)])
             if count_inv >= 1:
-                raise UserError(
-                    _('Can not set as draft when you have one or more invoices related'))
-    
+                print("hello")
+                # raise UserError(
+                #     _('Can not set as draft when you have one or more invoices related'))
+            dsg.update({'state': constants.DRAFT})
+
     def set_expired(self):
         for dsg in self:
             dsg.update({'state': constants.EXPIRED})

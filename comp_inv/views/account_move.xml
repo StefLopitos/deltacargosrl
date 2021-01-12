@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="fb_account_move_form_inherit">
+            <field name="name">FB Account Move inherit form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Fiscals">
+                        <group colspan="4" col="4">
+                            <group colspan="2" col="2">
+                                <field name="cmp_dosage_id"/>
+                                <field name="cmp_issue"/>
+                                <field name="cmp_nit"/>
+                                <field name="cmp_business_name"/>
+                            </group>
+                            <group colspan="2" col="2">
+                                <field name="cmp_state" readonly="1"/>
+                                <field name="cmp_number" readonly="1"/>
+                                <field name="cmp_code" readonly="1"/>
+                                <field name="cmp_qr_image" readonly="1" widget="image" class="oe_avatar"
+                                       attrs="{'invisible': [('cmp_state', '!=', 'V')]}"/>
+                                <button name="cmp_validate" type="object" string="Computerized invoice"
+                                        icon="fa-qrcode"
+                                        attrs="{'invisible': [('cmp_state', '!=', 'draft')]}"/>
+                            </group>
+
+                        </group>
+
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</odoo>

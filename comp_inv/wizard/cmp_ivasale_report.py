@@ -1,5 +1,5 @@
 from odoo import models, fields, api
-from ..models import constants
+from ..models.constants import CMPConstants as constants
 import xlwt
 from xlwt import easyxf
 import io
