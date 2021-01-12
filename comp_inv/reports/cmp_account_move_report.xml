@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="fb_css_assets" name="comp_inv assets" inherit_id="web.report_assets_common">
+        <xpath expr="//t[@t-name='web.report_assets_common']" position="inside">
+            <link href="/comp_inv/static/src/css/report_style.css" rel="stylesheet"/>
+        </xpath>
+    </template>
+
+    <template id="comp_inv.cmp_account_move_report_doc">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="o">
+                <div class="page overtop">
+                    <div class="row col-12">
+                        <div class="col-4 pt-1 text-center">
+                            <img t-if="o.cmp_dosage_id.company_logo" t-att-src="'data:image/png;base64,%s' % to_text(o.cmp_dosage_id.company_logo)" style="height: 125px;" alt="o.cmp_dosage_id.business_name"/>
+                            <div class="box-company mt-m-1">
+                                <span t-field="o.cmp_dosage_id.business_name"/>
+                            </div>
+                            <div class="box-small-description" style="width:260px;">
+                                <span t-field="o.cmp_dosage_id.invoice_header"/>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="box-title text-center">FACTURA</div>
+                        </div>
+                        <div class="col-4 pt-5">
+                            <div class="box-round">
+                                <p class="box-nit">
+                                    NIT:
+                                    <span t-field="o.cmp_dosage_id.tin"/>
+                                </p>
+                                <p class="box-nit">
+                                    FACTURA:
+                                    <span t-field="o.cmp_number"/>
+                                </p>
+                                <p class="box-nit">
+                                    Nº AUTORIZACION:
+                                    <span t-field="o.cmp_dosage_id.auth_number"/>
+                                </p>
+                            </div>
+                            <p class="text-center" t-field="o.cmp_dosage_id.activity_id.name"/>
+                        </div>
+                    </div>
+                    <div class="row col-12 mt-3 pt-3 font-mid">
+                        <div class="col-12 mt-3">
+                            Lugar y fecha:
+                            <span t-field="o.cmp_dosage_id.location"/>
+                            <span class="box-date">
+                                <t t-esc="o.cmp_issue.strftime('%d / %m / %Y')"/>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row col-12 font-mid">
+                        <div class="col-6">
+                            Sr(es):
+                            <span t-field="o.cmp_business_name"/>
+                        </div>
+                        <div class="col-6 text-right">
+                            C.I. / N.I.T.:
+                            <span class="box-nit-ci">
+                                <span t-field="o.cmp_nit"/>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row col-12 mt-1">
+                        <div class="col-12 table-round watermark">
+                            <table class="invoice-detail-letter">
+                                <th>CONCEPTO</th>
+                                <th>CANT</th>
+                                <th>PRECIO</th>
+                                <th>SUBTOTAL</th>
+                                <tr t-foreach="o.invoice_line_ids" t-as="line">
+                                    <td style="width:70%">
+                                        <span t-field="line.name"/>
+                                    </td>
+                                    <td class="bleft">
+                                        <span t-field="line.quantity"/>
+                                    </td>
+                                    <td class="bleft text-right">
+                                        <span t-field="line.price_unit"/>
+                                    </td>
+                                    <td class="bleft text-right">
+                                        <span t-field="line.price_total"/>
+                                    </td>
+                                </tr>
+                                <tr class="bottom-fill-row">
+                                    <td class="bottom-fill-cell"/>
+                                    <td class="bottom-fill-cell bleft"/>
+                                    <td class="bottom-fill-cell bleft"/>
+                                    <td class="bottom-fill-cell bleft"/>
+                                </tr>
+                                <tr>
+                                    <td class="bottom-cell" colspan="2">
+                                        Son:
+                                        <t t-esc="o.display_literal(o.amount_total, language='es', suffix='Bolivianos.')"/>
+                                    </td>
+                                    <td class="bottom-cell text-right">TOTAL Bs.:</td>
+                                    <td class="bottom-cell text-right">
+                                        <span t-field="o.amount_total"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row col-12 mt-3">
+                        <div class="col-10">
+                            <div class="col-12">
+                                <p class="pt-2">
+                                    <strong>CODIGO DE CONTROL:</strong>
+                                    <strong>
+                                        <span class="pl-2" t-field="o.cmp_code"/>
+                                    </strong>
+                                </p>
+                                <p>
+                                    <strong>FECHA LIMITE DE EMISION:</strong>
+                                    <strong>
+                                        <span class="pl-2" t-field="o.cmp_dosage_id.date_due"/>
+                                    </strong>
+                                </p>
+                                <p class="text-center">
+                                    “ESTA FACTURA CONTRIBUYE AL DESARROLLO DEL PAÍS. EL USO ILÍCITO DE ÉSTA SERÁ
+                                    SANCIONADO DE ACUERDO A LEY”
+                                </p>
+                                <p class="ad_footer text-center" t-field="o.cmp_dosage_id.invoice_footer"/>
+                            </div>
+                        </div>
+                        <div class="col-2" style="margin-left:-23pt; margin-top:4pt">
+                            <img style="width:100%" class="border border-dark rounded" t-att-src="o.get_qr_url()" alt="QR CODE"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+
+    <report
+            id="cmp_account_move_report"
+            string="Comp. Invoice"
+            model="account.move"
+            report_type="qweb-pdf"
+            name="comp_inv.cmp_account_move_report_doc"
+            file="FACTURA"
+    />
+</odoo>

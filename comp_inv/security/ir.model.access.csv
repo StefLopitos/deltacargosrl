@@ -1,5 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_cmp_inv_usr,cmp_invoice_usr,model_cmp_invoice,base.group_user,1,1,1,0
-access_cmp_invline_usr,cmp_invline_usr,model_cmp_invoice_line,base.group_user,1,1,1,1
 access_cmp_dosage_usr,cmp_dosage_usr,model_cmp_dosage,base.group_user,1,1,1,0
 access_cmp_activity_usr,cmp_activity_usr,model_cmp_activity,base.group_user,1,1,1,0

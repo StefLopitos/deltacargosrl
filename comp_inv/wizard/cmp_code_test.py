@@ -1,6 +1,6 @@
 from odoo import models, fields, api
 from ..models.control_code_generator import ControlCodeGenerator
-from ..models import constants
+from ..models.constants import CMPConstants as constants
 
 
 class CmpCodeTest(models.TransientModel):
