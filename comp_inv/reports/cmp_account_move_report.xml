@@ -47,7 +47,7 @@
                             Lugar y fecha:
                             <span t-field="o.cmp_dosage_id.location"/>
                             <span class="box-date">
-                                <t t-esc="o.cmp_issue.strftime('%d / %m / %Y')"/>
+                                <t t-esc="o.diplay_date_report(o.date_issue)"/>
                             </span>
                         </div>
                     </div>
