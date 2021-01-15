@@ -11,9 +11,11 @@
         <t t-call="web.basic_layout">
             <t t-foreach="docs" t-as="o">
                 <div class="page overtop">
-                    <div class="row col-12">
-                        <div class="col-4 pt-1 text-center">
-                            <img t-if="o.cmp_dosage_id.company_logo" t-att-src="'data:image/png;base64,%s' % to_text(o.cmp_dosage_id.company_logo)" style="height: 125px;" alt="o.cmp_dosage_id.business_name"/>
+                    <div class="row col-12 pt-2">
+                        <div class="col-5 text-center">
+                            <img t-if="o.cmp_dosage_id.company_logo"
+                                 t-att-src="'data:image/png;base64,%s' % to_text(o.cmp_dosage_id.company_logo)"
+                                 style="height: 125px;" alt="o.cmp_dosage_id.business_name"/>
                             <div class="box-company mt-m-1">
                                 <span t-field="o.cmp_dosage_id.business_name"/>
                             </div>
@@ -21,10 +23,10 @@
                                 <span t-field="o.cmp_dosage_id.invoice_header"/>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                             <div class="box-title text-center">FACTURA</div>
                         </div>
-                        <div class="col-4 pt-5">
+                        <div class="col-4">
                             <div class="box-round">
                                 <p class="box-nit">
                                     NIT:
@@ -47,7 +49,7 @@
                             Lugar y fecha:
                             <span t-field="o.cmp_dosage_id.location"/>
                             <span class="box-date">
-                                <t t-esc="o.diplay_date_report(o.cmp_issue)"/>
+                                <t t-esc="o.cmp_issue.strftime('%d / %m / %Y')"/>
                             </span>
                         </div>
                     </div>
@@ -126,7 +128,8 @@
                             </div>
                         </div>
                         <div class="col-2" style="margin-left:-23pt; margin-top:4pt">
-                            <img style="width:100%" class="border border-dark rounded" t-att-src="o.get_qr_url()" alt="QR CODE"/>
+                            <img style="width:100%" class="border border-dark rounded" t-att-src="o.get_qr_url()"
+                                 alt="QR CODE"/>
                         </div>
                     </div>
                 </div>
@@ -143,4 +146,8 @@
             name="comp_inv.cmp_account_move_report_doc"
             file="FACTURA"
     />
+
+    <record id="comp_inv.cmp_account_move_report" model="ir.actions.report">
+        <field name="paperformat_id" ref="comp_inv.cmp_format_letter"/>
+    </record>
 </odoo>

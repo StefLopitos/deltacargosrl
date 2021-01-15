@@ -98,19 +98,20 @@ class CMPAccountMove(models.Model):
         trunc_number = math.trunc(number)
         cents = round(number % math.trunc(number) * 100)
         entero = num2words(trunc_number, lang=language)
-        if int(trunc_number) ==1000 and int(cents) == 0:
+        if int(trunc_number) == 1000 and int(cents) == 0:
             entero = 'Un mil'
-        return '%s %s/100 %s' % (entero, cents, suffix)
-    
+        result = '%s %s/100 %s' % (entero, cents, suffix)
+        return result.upper()
+
     @staticmethod
     def diplay_date_report(date_value):
         dt_str = date_value.strftime('%d-%m-%Y')
         dts = dt_str.split('-')
-        dates = {'01':'enero', '02':'febrero', '03':'marzo', '04':'abril', 
-        '05':'mayo', '06':'junio','07':'julio', '08':'agosto', 
-        '09':'septiembre', '10':'octubre', '11':'noviembre', '12':'diciembre'}
-        return '%s de %s de %s' % (int(dts[0]), dates.get(dts[1],dts[1]), dts[2]) 
-
+        dates = {'01': 'enero', '02': 'febrero', '03': 'marzo', '04': 'abril',
+                 '05': 'mayo', '06': 'junio', '07': 'julio', '08': 'agosto',
+                 '09': 'septiembre', '10': 'octubre', '11': 'noviembre', '12': 'diciembre'}
+        result = '%s de %s de %s' % (int(dts[0]), dates.get(dts[1], dts[1]), dts[2])
+        return result.upper()
 
     @api.onchange('cmp_dosage_id')
     def change_cmp_dosage_id(self):

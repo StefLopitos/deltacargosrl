@@ -23,6 +23,7 @@
 
     # always loaded
     'data': [
+        'data/paperformats.xml',
         'security/ir.model.access.csv',
         'views/cmp_dosage_form.xml',
         'views/cmp_dosage_tree.xml',

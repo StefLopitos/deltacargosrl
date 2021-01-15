@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0+e\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-12 19:58+0000\n"
-"PO-Revision-Date: 2021-01-12 16:12-0400\n"
+"POT-Creation-Date: 2021-01-15 12:45+0000\n"
+"PO-Revision-Date: 2021-01-15 09:20-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,12 +20,12 @@ msgstr ""
 #. module: comp_inv
 #: model_terms:ir.ui.view,arch_db:comp_inv.cmp_account_move_report_doc
 msgid "<strong>CODIGO DE CONTROL:</strong>"
-msgstr ""
+msgstr "<strong>CODIGO DE CONTROL:</strong>"
 
 #. module: comp_inv
 #: model_terms:ir.ui.view,arch_db:comp_inv.cmp_account_move_report_doc
 msgid "<strong>FECHA LIMITE DE EMISION:</strong>"
-msgstr ""
+msgstr "<strong>FECHA LIMITE DE EMISION:</strong>"
 
 #. module: comp_inv
 #: model:ir.model.fields.selection,name:comp_inv.selection__cmp_ivasale_report__month__04
@@ -36,6 +36,11 @@ msgstr "ABRIL"
 #: model:ir.model.fields.selection,name:comp_inv.selection__cmp_ivasale_report__month__08
 msgid "AUGUST"
 msgstr "AGOSTO"
+
+#. module: comp_inv
+#: model_terms:ir.ui.view,arch_db:comp_inv.cmp_account_move_report_doc
+msgid "AUTORIZACION Nº"
+msgstr "AUTORIZACION Nº"
 
 #. module: comp_inv
 #: model:ir.model.fields.selection,name:comp_inv.selection__cmp_dosage__state__active
@@ -73,12 +78,12 @@ msgstr "Sucursal"
 #. module: comp_inv
 #: model:ir.model.fields,field_description:comp_inv.field_cmp_dosage__branch_code
 msgid "Branch code"
-msgstr "Cód. Sucursal"
+msgstr "Código sucursal"
 
 #. module: comp_inv
 #: model:ir.model.fields,field_description:comp_inv.field_cmp_dosage__activity_id
 msgid "Business Activity"
-msgstr "Actividad Económica"
+msgstr "Actividad económica"
 
 #. module: comp_inv
 #: model_terms:ir.ui.view,arch_db:comp_inv.cmp_dosage_search
@@ -98,12 +103,7 @@ msgstr "Descripción empresa"
 #. module: comp_inv
 #: model:ir.model.fields,field_description:comp_inv.field_cmp_dosage__business_name
 msgid "Business name"
-msgstr "Razón Social"
-
-#. module: comp_inv
-#: model_terms:ir.ui.view,arch_db:comp_inv.cmp_account_move_report_doc
-msgid "C.I. / N.I.T.:"
-msgstr "CI/NIT"
+msgstr "Razón social"
 
 #. module: comp_inv
 #: model_terms:ir.ui.view,arch_db:comp_inv.cmp_account_move_report_doc
@@ -118,17 +118,17 @@ msgstr "CONCEPTO"
 #. module: comp_inv
 #: model:ir.actions.report,name:comp_inv.cmp_account_move_report
 msgid "Comp. Invoice"
-msgstr "Factura Comp."
+msgstr "Factura computarizada"
 
 #. module: comp_inv
 #: model_terms:ir.ui.view,arch_db:comp_inv.cmp_dosage_tree
 msgid "Comp. Invoices"
-msgstr "Facturas comp."
+msgstr "Facturas computarizadas"
 
 #. module: comp_inv
 #: model:ir.model,name:comp_inv.model_cmp_dosage
 msgid "Company Invoicing Dosage"
-msgstr "Dosificación empresa"
+msgstr "Dosificación de empresa"
 
 #. module: comp_inv
 #: model:ir.model.fields,help:comp_inv.field_account_move__cmp_dosage_id
@@ -138,12 +138,12 @@ msgstr "Dosificación empresa"
 #. module: comp_inv
 #: model:ir.ui.menu,name:comp_inv.cmp_settings_menu
 msgid "Computerized Invoicing"
-msgstr "Facturación computarizada"
+msgstr "Facturación Computarizada"
 
 #. module: comp_inv
 #: model_terms:ir.ui.view,arch_db:comp_inv.fb_account_move_form_inherit
 msgid "Computerized invoice"
-msgstr "Factura comp."
+msgstr "Factura computarizada"
 
 #. module: comp_inv
 #: model:ir.model.fields,field_description:comp_inv.field_cmp_dosage__auth_number_c
@@ -151,7 +151,7 @@ msgstr "Factura comp."
 #: model:ir.model.fields,field_description:comp_inv.field_cmp_dosage__dosage_key_c
 #: model_terms:ir.ui.view,arch_db:comp_inv.cmp_dosage_form
 msgid "Confirm"
-msgstr "Confirmar"
+msgstr "Confirmado"
 
 #. module: comp_inv
 #: model:ir.model,name:comp_inv.model_res_partner
@@ -177,12 +177,12 @@ msgstr "RS Cliente"
 #. module: comp_inv
 #: model:ir.model.fields,help:comp_inv.field_account_move__cmp_business_name
 msgid "Costumer's Business Name"
-msgstr "Razón social cliente"
+msgstr "Razón Social cliente"
 
 #. module: comp_inv
 #: model_terms:ir.actions.act_window,help:comp_inv.cmp_dosage_action
 msgid "Create a new dosage for your company."
-msgstr "Crear nueva dosificación para su empresa"
+msgstr "Puede crear una nueva dosificación para su empresa"
 
 #. module: comp_inv
 #: model:ir.model.fields,field_description:comp_inv.field_cmp_activity__create_uid
@@ -240,12 +240,12 @@ msgstr "Tamaño detalle"
 #: model:ir.model.fields,field_description:comp_inv.field_cmp_ivasale_report__display_name
 #: model:ir.model.fields,field_description:comp_inv.field_cmp_tax__display_name
 msgid "Display Name"
-msgstr "Nombre a mostrar"
+msgstr ""
 
 #. module: comp_inv
 #: model:ir.model.fields,field_description:comp_inv.field_cmp_dosage__limit_detail_display
 msgid "Display to"
-msgstr "Desplegar hasta"
+msgstr "Mostrar hasta"
 
 #. module: comp_inv
 #: model:ir.model.fields,field_description:comp_inv.field_account_move__cmp_dosage_id
@@ -269,7 +269,7 @@ msgstr "Llave dosificación"
 #: model:ir.actions.act_window,name:comp_inv.cmp_dosage_action
 #: model:ir.ui.menu,name:comp_inv.cmp_dosage_menu
 msgid "Dosages"
-msgstr "Dosifcicaciones"
+msgstr "Dosificaciones"
 
 #. module: comp_inv
 #: model:ir.model.fields.selection,name:comp_inv.selection__account_move__cmp_state__draft
@@ -304,8 +304,8 @@ msgstr "FACTURA"
 
 #. module: comp_inv
 #: model_terms:ir.ui.view,arch_db:comp_inv.cmp_account_move_report_doc
-msgid "FACTURA:"
-msgstr "FACTURA:"
+msgid "FACTURA Nº"
+msgstr "FACTURA Nº"
 
 #. module: comp_inv
 #: model:ir.model.fields.selection,name:comp_inv.selection__cmp_ivasale_report__month__02
@@ -315,7 +315,7 @@ msgstr "FEBRERO"
 #. module: comp_inv
 #: model:ir.model.fields,field_description:comp_inv.field_cmp_ivasale_report__file_name
 msgid "File name"
-msgstr "Nobmre archivo"
+msgstr "Nombre archivo"
 
 #. module: comp_inv
 #: model:ir.model.fields,field_description:comp_inv.field_cmp_ivasale_report__year
@@ -341,7 +341,7 @@ msgstr "Pie de página"
 #. module: comp_inv
 #: model:ir.model.fields,help:comp_inv.field_cmp_dosage__invoice_footer
 msgid "Footer's text"
-msgstr "Texto de pie de página"
+msgstr "Texto pie de página"
 
 #. module: comp_inv
 #: model:ir.model.fields.selection,name:comp_inv.selection__account_move__cmp_state__l
@@ -402,7 +402,7 @@ msgstr "Líneas de factura"
 #. module: comp_inv
 #: model:ir.model.fields,field_description:comp_inv.field_cmp_dosage__limit_lines
 msgid "Invoice lines limit"
-msgstr "Límite de líneas de factura"
+msgstr "Límite líneas de factura"
 
 #. module: comp_inv
 #: model:ir.model.fields,field_description:comp_inv.field_cmp_code_test__invoice_number
@@ -459,7 +459,7 @@ msgstr ""
 #. module: comp_inv
 #: model:ir.model.fields,help:comp_inv.field_cmp_dosage__is_branch
 msgid "Let this empty if this dosage is not for branch use"
-msgstr "Dejar en blanco si la dosificación no es para una sucursal"
+msgstr "Dejar vacío si no es sucursal"
 
 #. module: comp_inv
 #: model:ir.model.fields,field_description:comp_inv.field_account_move__cmp_literal
@@ -482,11 +482,6 @@ msgid "Lost invoice"
 msgstr "Factura perdida"
 
 #. module: comp_inv
-#: model_terms:ir.ui.view,arch_db:comp_inv.cmp_account_move_report_doc
-msgid "Lugar y fecha:"
-msgstr "Lugar y fecha:"
-
-#. module: comp_inv
 #: model:ir.model.fields.selection,name:comp_inv.selection__cmp_ivasale_report__month__03
 msgid "MARCH"
 msgstr "MARZO"
@@ -499,7 +494,7 @@ msgstr "MAYO"
 #. module: comp_inv
 #: model_terms:ir.ui.view,arch_db:comp_inv.cmp_dosage_form
 msgid "Main info"
-msgstr "Info. principal"
+msgstr "Principal"
 
 #. module: comp_inv
 #: model:ir.model.fields.selection,name:comp_inv.selection__cmp_dosage__type_dosage__man
@@ -515,25 +510,30 @@ msgstr "Mes"
 #: code:addons/comp_inv/models/cmp_dosage.py:0
 #, python-format
 msgid "Must confirm the current Initial invoice number properly"
-msgstr "Debe confirmar el Nro. Factura inicial apropiadamente"
+msgstr "Debe confirmar Nro. Factura inicial apropiadamente"
 
 #. module: comp_inv
 #: code:addons/comp_inv/models/cmp_dosage.py:0
 #, python-format
 msgid "Must confirm the current authorization number properly"
-msgstr "Debe confirmar el Nro. Autorización apropiadamente"
+msgstr "Debe confirmar Nro. Autorización apropiadamente"
 
 #. module: comp_inv
 #: code:addons/comp_inv/models/cmp_dosage.py:0
 #, python-format
 msgid "Must confirm the current dosage key properly"
-msgstr "Debe confirmar la Llave Dosificación apropiadamente"
+msgstr "Debe confirmar Llave de dosificación apropiadamente"
 
 #. module: comp_inv
 #: code:addons/comp_inv/models/cmp_dosage.py:0
 #, python-format
 msgid "Must confirm the current due date properly"
-msgstr "Debe confirmar la Fecha límite apropiadamente"
+msgstr "Debe confirmar Fecha límite apropiadamente"
+
+#. module: comp_inv
+#: model_terms:ir.ui.view,arch_db:comp_inv.cmp_account_move_report_doc
+msgid "NIT"
+msgstr "NIT"
 
 #. module: comp_inv
 #: model_terms:ir.ui.view,arch_db:comp_inv.cmp_account_move_report_doc
@@ -549,7 +549,7 @@ msgstr "NOVIEMBRE"
 #: model:ir.model.fields,field_description:comp_inv.field_cmp_activity__name
 #: model:ir.model.fields,field_description:comp_inv.field_cmp_tax__name
 msgid "Name"
-msgstr "Nombre Ref"
+msgstr "Nombre"
 
 #. module: comp_inv
 #: model:ir.model.fields.selection,name:comp_inv.selection__account_move__cmp_state__n
@@ -557,14 +557,14 @@ msgid "Not Used"
 msgstr "No usado"
 
 #. module: comp_inv
-#: model_terms:ir.ui.view,arch_db:comp_inv.cmp_account_move_report_doc
-msgid "Nº AUTORIZACION:"
-msgstr "Nº AUTORIZACION:"
-
-#. module: comp_inv
 #: model:ir.model.fields.selection,name:comp_inv.selection__cmp_ivasale_report__month__10
 msgid "OCTOBER"
 msgstr "OCTUBRE"
+
+#. module: comp_inv
+#: model_terms:ir.ui.view,arch_db:comp_inv.cmp_account_move_report_doc
+msgid "ORIGINAL"
+msgstr "ORIGINAL"
 
 #. module: comp_inv
 #: model_terms:ir.ui.view,arch_db:comp_inv.cmp_account_move_report_doc
@@ -599,7 +599,7 @@ msgstr "Código QR"
 #. module: comp_inv
 #: model:ir.model.fields,field_description:comp_inv.field_account_move__cmp_qr_content
 msgid "QR string"
-msgstr "Texto QR"
+msgstr "texto QR"
 
 #. module: comp_inv
 #: model_terms:ir.ui.view,arch_db:comp_inv.cmp_dosage_search
@@ -609,7 +609,7 @@ msgstr "Referencia"
 #. module: comp_inv
 #: model:ir.model.fields,field_description:comp_inv.field_cmp_dosage__name
 msgid "Reference name"
-msgstr "Nombre Referencia"
+msgstr "Nombre referencia"
 
 #. module: comp_inv
 #: model_terms:ir.ui.view,arch_db:comp_inv.cmp_dosage_form
@@ -627,9 +627,19 @@ msgid "SEPTEMBER"
 msgstr "SEPTIEMBRE"
 
 #. module: comp_inv
+#: model_terms:ir.ui.view,arch_db:comp_inv.cmp_account_move_report_doc
+msgid "SEÑOR(ES):"
+msgstr "SEÑOR(ES):"
+
+#. module: comp_inv
 #: model:ir.model.fields,field_description:comp_inv.field_cmp_dosage__sfc
 msgid "SFC"
 msgstr "SFC"
+
+#. module: comp_inv
+#: model_terms:ir.ui.view,arch_db:comp_inv.cmp_account_move_report_doc
+msgid "SON:"
+msgstr "SON:"
 
 #. module: comp_inv
 #: model_terms:ir.ui.view,arch_db:comp_inv.cmp_account_move_report_doc
@@ -640,16 +650,6 @@ msgstr "SUBTOTAL"
 #: model_terms:ir.ui.view,arch_db:comp_inv.cmp_dosage_search
 msgid "Search Dosage"
 msgstr "Buscar dosificación"
-
-#. module: comp_inv
-#: model_terms:ir.ui.view,arch_db:comp_inv.cmp_account_move_report_doc
-msgid "Son:"
-msgstr "Son: "
-
-#. module: comp_inv
-#: model_terms:ir.ui.view,arch_db:comp_inv.cmp_account_move_report_doc
-msgid "Sr(es):"
-msgstr "Sr(es):"
 
 #. module: comp_inv
 #: model:ir.model.fields.selection,name:comp_inv.selection__cmp_dosage__type_dosage__std
@@ -685,13 +685,13 @@ msgstr "TOTAL Bs.:"
 #. module: comp_inv
 #: model:ir.model.fields,help:comp_inv.field_cmp_dosage__tin
 msgid "Tax Identification Number"
-msgstr "Número Identificación Tributaria"
+msgstr "Nro Identificación Tributaria"
 
 #. module: comp_inv
 #: model:ir.model.fields,help:comp_inv.field_res_partner__cmp_tin
 #: model:ir.model.fields,help:comp_inv.field_res_users__cmp_tin
 msgid "Tax Identification Number (Just numbers)"
-msgstr "Número Identificación Tributaria (solo números)"
+msgstr "Nro. Identificación Tributaria (solo números)"
 
 #. module: comp_inv
 #: model:ir.model.fields,field_description:comp_inv.field_cmp_dosage__taxes_ids
@@ -702,13 +702,13 @@ msgstr "Impuestos"
 #: code:addons/comp_inv/models/cmp_invoice.py:0
 #, python-format
 msgid "The invoice number was duplicated"
-msgstr "Nro de factura duplicado"
+msgstr "Nro. Factura duplicado"
 
 #. module: comp_inv
 #: code:addons/comp_inv/models/account_move.py:0
 #, python-format
 msgid "The selected dosage already has the %s invoice number"
-msgstr "La dosificación ya tiene el nro de factura %s"
+msgstr "La dosificación ya tiene registrada la factura nº %s "
 
 #. module: comp_inv
 #: model:ir.model.fields,field_description:comp_inv.field_cmp_code_test__amount_total
@@ -725,7 +725,7 @@ msgstr "Tipo"
 #: model:ir.model.fields,help:comp_inv.field_res_partner__cmp_customer_code
 #: model:ir.model.fields,help:comp_inv.field_res_users__cmp_customer_code
 msgid "Used for computerized invoicing"
-msgstr "Usado por facturación comp."
+msgstr "Usado para facturación computarizada"
 
 #. module: comp_inv
 #: model:ir.model.fields.selection,name:comp_inv.selection__account_move__cmp_state__v
@@ -745,22 +745,22 @@ msgstr "Tasa cero"
 #. module: comp_inv
 #: model_terms:ir.ui.view,arch_db:comp_inv.cmp_dosage_form
 msgid "Zero gets full text"
-msgstr "0 obtiene el texto completo"
+msgstr "Cero muestra texto completo"
 
 #. module: comp_inv
 #: model_terms:ir.ui.view,arch_db:comp_inv.cmp_dosage_form
 msgid "Zero means no limit"
-msgstr "0 quita límites"
+msgstr "Cero es sin límite"
 
 #. module: comp_inv
 #: model_terms:ir.ui.view,arch_db:comp_inv.cmp_dosage_form
 msgid "Zero shows full text"
-msgstr "0 muestra el texto completo"
+msgstr "Cero muestra texto completo"
 
 #. module: comp_inv
 #: model:ir.model,name:comp_inv.model_cmp_code_test
 msgid "cmp.code.test"
-msgstr ""
+msgstr "cmp.code.test"
 
 #. module: comp_inv
 #: model:ir.model,name:comp_inv.model_cmp_ivasale_report
@@ -775,7 +775,7 @@ msgstr ""
 #. module: comp_inv
 #: model:ir.model.fields,field_description:comp_inv.field_account_move__cmp_issue
 msgid "date of issue"
-msgstr "Fecha emisión"
+msgstr "Fecha emición"
 
 #. module: comp_inv
 #: model_terms:ir.ui.view,arch_db:comp_inv.cmp_account_move_report_doc
@@ -785,6 +785,10 @@ msgstr ""
 #. module: comp_inv
 #: model_terms:ir.ui.view,arch_db:comp_inv.cmp_account_move_report_doc
 msgid ""
-"“ESTA FACTURA CONTRIBUYE AL DESARROLLO DEL PAÍS. EL USO ILÍCITO DE ÉSTA SERÁ\n"
-"                                    SANCIONADO DE ACUERDO A LEY”"
-msgstr "“ESTA FACTURA CONTRIBUYE AL DESARROLLO DEL PAÍS. EL USO ILÍCITO DE ÉSTA SERÁ SANCIONADO DE ACUERDO A LEY”"
+"“ESTA FACTURA CONTRIBUYE AL DESARROLLO DEL PAÍS. EL USO ILÍCITO DE ÉSTA SERÁ SANCIONADO\n"
+"                                DE\n"
+"                                ACUERDO A LEY”"
+msgstr ""
+"“ESTA FACTURA CONTRIBUYE AL DESARROLLO DEL PAÍS. EL USO ILÍCITO DE ÉSTA SERÁ SANCIONADO\n"
+"                                DE\n"
+"                                ACUERDO A LEY”"
