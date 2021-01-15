@@ -96,7 +96,7 @@ class CMPAccountMove(models.Model):
     @staticmethod
     def display_literal(number, language='en', suffix=''):
         trunc_number = math.trunc(number)
-        cents = round(number % math.trunc(number) * 100)
+        cents = '{:02}'.format(round(number % math.trunc(number) * 100))
         entero = num2words(trunc_number, lang=language)
         if int(trunc_number) == 1000 and int(cents) == 0:
             entero = 'Un mil'
