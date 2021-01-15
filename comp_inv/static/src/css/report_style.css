@@ -15,21 +15,17 @@ padding-left:5px;
     margin-top: -10px;
 }
 .box-company {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bold;
 }
 .box-small-description {
-    position: absolute;
-    font-size: 11px;
+    font-size: 10px;
 }
 
 .box-title {
     font-size: 32px;
     font-weight: 900;
     color: #ee901f;
-    padding-top: 0;
-    position: absolute;
-    bottom: 0;
     width: inherit;
 }
 .box-round {
@@ -41,10 +37,14 @@ padding-left:5px;
 }
 
 .box-nit {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 700;
     margin-bottom: 0;
 }
+.text-red{
+    color: #ac0606;
+}
+
 .box-red {
     font-size: 18px;
     color: hsl(11deg 86% 40%);
@@ -56,14 +56,13 @@ padding-left:5px;
 }
 
 .box-date {
-    font-weight:600;
     padding-left: 10px;
 }
 .box-nit-ci {
     padding-left: 10px;
 }
 .font-mid {
-    font-size:16px;
+    font-size:11px;
 }
 
 .table-round {
@@ -74,8 +73,16 @@ padding-left:5px;
     padding: 0;
 }
 
+.table-square {
+    border-color: #000;
+    border-style: solid;
+    border-width: 1pt;
+    padding: 0;
+    border-collapse: collapse;
+}
+
 .watermark {
-    background-image: url('/comp_inv/static/src/img/bg.png');
+    background-image: url('/comp_inv/static/src/img/bg1.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: auto;
@@ -84,36 +91,43 @@ padding-left:5px;
 .table-round table{
     width:100%;
 }
-.table-round table th {
-    border-bottom-color: #000;
-    border-bottom-style: solid;
-    border-bottom-width: 2pt;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 600;
+table.table-square{
+    width:100%;
 }
-.table-round tr {
+
+table.table-square tr th {
+    border-color: #000;
+    border-style: solid;
+    border-width: 1pt;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    border-collapse: collapse;
+    padding: 5px;
+}
+.table-square tr {
     height: 30px;
 }
-.table-round td {
+.table-square td {
     padding: 10px;
     font-size: 13px;
+    border-collapse: collapse;
 }
-.table-round > table > tr:first-child{
-    border-left: none;
+.table-square  tr td{
+    font-size:11px;
 }
 tr.bottom-fill-row {
     height: auto;
 }
 td.bottom-fill-cell {
     height: auto;
-    border-bottom: solid 2pt #000;
+    border-bottom: solid 1pt #000;
 }
 td.bleft {
-    border-left: solid 2pt #000;
+    border-left: solid 1pt #000;
 }
 table.invoice-detail-letter {
-    height:450px;
+    height:575px;
 }
 
 .fb-centered {
@@ -182,6 +196,7 @@ background-color:#f0f1f3;
     background-color: #0066ff;
     border: solid 1px #ffffff;
     color: #ffffff;
+    padding: 5px;
     text-align: center !important;
 }
 .fb-table-strip > tbody > tr {
