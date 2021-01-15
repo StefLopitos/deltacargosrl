@@ -17,7 +17,7 @@
                             </group>
                             <group colspan="2" col="2">
                                 <field name="cmp_state" readonly="1"/>
-                                <field name="cmp_number" readonly="1"/>
+                                <field name="cmp_number" attrs="{'readonly':[('cmp_state','!=','draft')]}"/>
                                 <field name="cmp_code" readonly="1"/>
                                 <field name="cmp_qr_image" readonly="1" widget="image" class="oe_avatar"
                                        attrs="{'invisible': [('cmp_state', '!=', 'V')]}"/>
